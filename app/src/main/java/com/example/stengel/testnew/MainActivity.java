@@ -44,9 +44,10 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
-
     // ##### Add method for add to my location button's click method and call getLastKnownLocation() #####
-
+    public void btnAddMyPlace_OnClick(View oView){
+        getLastKnownLocation();
+    }
 
     // ##### Add method for View Map button's click method and send to maps activity #####
 
@@ -87,10 +88,10 @@ public class MainActivity extends AppCompatActivity implements
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getLastKnownLocation();
+                getLastKnownLocation();   //getting location here
             } else {
                 Toast.makeText(this, "App can't function if location access permission not granted to app!",
-                        Toast.LENGTH_LONG);
+                        Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -153,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements
                                     String sLocation = "lat: " + String.valueOf(location.getLatitude()) +
                                             "lon: " + String.valueOf(location.getLongitude());
                                     Log.d("---", "Location (inner): " + sLocation);
-                                    Toast.makeText(getBaseContext(), sLocation, Toast.LENGTH_LONG);
+                                    Toast.makeText(getBaseContext(), sLocation, Toast.LENGTH_LONG).show();
                                 }
                                 else{
                                     Log.d("---", "location is null");
@@ -170,13 +171,13 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onConnectionSuspended(int i) {
-        Toast.makeText(this, "---suspendend: " + i, Toast.LENGTH_LONG);
+        Toast.makeText(this, "---suspendend: " + i, Toast.LENGTH_LONG).show();
 
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Toast.makeText(this, "---Failed: " + connectionResult.getErrorMessage(), Toast.LENGTH_LONG);
+        Toast.makeText(this, "---Failed: " + connectionResult.getErrorMessage(), Toast.LENGTH_LONG).show();
 
     }
 }

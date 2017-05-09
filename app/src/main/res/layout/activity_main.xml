@@ -26,4 +26,6 @@
         android:layout_marginTop="49dp"
         android:id="@+id/button2"
         android:onClick="btnAddMyPlace_OnClick"/>
+    <!-- VCS Commit Changes  -->
+
 </RelativeLayout>
